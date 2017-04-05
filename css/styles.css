@@ -1,0 +1,609 @@
+/*
+ * AT&T Summer 2015 Intern Code Challenge
+ * Connected Chair
+ *
+ * Made by the Summer 2015 Interns
+ * * Pedro Sosa
+ * * Sean Rall
+ * * Alex Petterson
+ * * Logan Carter
+ * * Stephanie Liu
+ * 
+ * Version 1.0
+ * Updated 07/23/2015 
+ *
+ * Colors Used in this document
+ *	att-blue: #0574ac;
+ *	att-orange: #ef6f00;
+ *	att-red: #b30a3c;
+ *	att-green: #1b7e28;
+ *	att-ligtgrey: #666666;
+ *	att-gery: #333333;
+ *  
+*/
+
+/* ==========================================================================
+   Normalize.css (what i wanted form it)
+   ========================================================================== */
+::-moz-selection {
+    background:#a5dfe1;
+    text-shadow:none;
+}
+::selection {
+    background:#a5dfe1;
+    text-shadow:none;
+}
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:none;
+    margin:1em 0;
+    padding:0;
+}
+img {
+     border:0; 
+    -ms-interpolation-mode:bicubic
+}
+fieldset {
+    border:0;
+    margin:0;
+    padding:0;
+}
+textarea {
+    resize:vertical;
+}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*Clearview att font*/
+@font-face { /*Used*/
+    font-family: 'clearviewatt_bdregular';
+    src: url('../fonts/clearview/clearviewatt-bd-webfont.eot');
+    src: url('../fonts/clearview/clearviewatt-bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clearview/clearviewatt-bd-webfont.woff2') format('woff2'),
+         url('../fonts/clearview/clearviewatt-bd-webfont.woff') format('woff'),
+         url('../fonts/clearview/clearviewatt-bd-webfont.ttf') format('truetype'),
+         url('../fonts/clearview/clearviewatt-bd-webfont.svg#clearviewatt_bdregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*@font-face {
+    font-family: 'clearviewatt_bditregular';
+    src: url('../fonts/clearview/clearviewatt-bdit-webfont.eot');
+    src: url('../fonts/clearview/clearviewatt-bdit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clearview/clearviewatt-bdit-webfont.woff2') format('woff2'),
+         url('../fonts/clearview/clearviewatt-bdit-webfont.woff') format('woff'),
+         url('../fonts/clearview/clearviewatt-bdit-webfont.ttf') format('truetype'),
+         url('../fonts/clearview/clearviewatt-bdit-webfont.svg#clearviewatt_bditregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'clearviewatt_bkregular';
+    src: url('../fonts/clearview/clearviewatt-bk-webfont.eot');
+    src: url('../fonts/clearview/clearviewatt-bk-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clearview/clearviewatt-bk-webfont.woff2') format('woff2'),
+         url('../fonts/clearview/clearviewatt-bk-webfont.woff') format('woff'),
+         url('../fonts/clearview/clearviewatt-bk-webfont.ttf') format('truetype'),
+         url('../fonts/clearview/clearviewatt-bk-webfont.svg#clearviewatt_bkregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'clearviewatt_bkitregular';
+    src: url('../fonts/clearview/clearviewatt-bkit-webfont.eot');
+    src: url('../fonts/clearview/clearviewatt-bkit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clearview/clearviewatt-bkit-webfont.woff2') format('woff2'),
+         url('../fonts/clearview/clearviewatt-bkit-webfont.woff') format('woff'),
+         url('../fonts/clearview/clearviewatt-bkit-webfont.ttf') format('truetype'),
+         url('../fonts/clearview/clearviewatt-bkit-webfont.svg#clearviewatt_bkitregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'clearviewatt_ltregular';
+    src: url('../fonts/clearview/clearviewatt-lt-webfont.eot');
+    src: url('../fonts/clearview/clearviewatt-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clearview/clearviewatt-lt-webfont.woff2') format('woff2'),
+         url('../fonts/clearview/clearviewatt-lt-webfont.woff') format('woff'),
+         url('../fonts/clearview/clearviewatt-lt-webfont.ttf') format('truetype'),
+         url('../fonts/clearview/clearviewatt-lt-webfont.svg#clearviewatt_ltregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'clearviewatt_ltitregular';
+    src: url('../fonts/omnes/clearviewatt-ltit-webfont.eot');
+    src: url('../fonts/omnes/clearviewatt-ltit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/clearviewatt-ltit-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/clearviewatt-ltit-webfont.woff') format('woff'),
+         url('../fonts/omnes/clearviewatt-ltit-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/clearviewatt-ltit-webfont.svg#clearviewatt_ltitregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}*/
+/*Omnes ATT Font*/
+@font-face { /*used*/
+    font-family: 'omnes_att_w02regular';
+    src: url('../fonts/omnes/omnes_attw02-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02-webfont.svg#omnes_att_w02regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*@font-face {
+    font-family: 'omnes_att_w02_boldregular';
+    src: url('../fonts/omnes/omnes_attw02bold-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02bold-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02bold-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02bold-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02bold-webfont.svg#omnes_att_w02_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'omnes_att_w02_italicregular';
+    src: url('../fonts/omnes/omnes_attw02italic-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02italic-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02italic-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02italic-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02italic-webfont.svg#omnes_att_w02_italicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}*/
+@font-face { /*used*/
+    font-family: 'omnes_att_w02_lightregular';
+    src: url('../fonts/omnes/omnes_attw02light-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02light-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02light-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02light-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02light-webfont.svg#omnes_att_w02_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*@font-face {
+    font-family: 'omnes_att_w02_light_italicRg';
+    src: url('../fonts/omnes/omnes_attw02lightitalic-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02lightitalic-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02lightitalic-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02lightitalic-webfont.svg#omnes_att_w02_light_italicRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'omnes_att_w02_mediumregular';
+    src: url('../fonts/omnes/omnes_attw02medium-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02medium-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02medium-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02medium-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02medium-webfont.svg#omnes_att_w02_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'omnes_att_w02_medium_italicRg';
+    src: url('../fonts/omnes/omnes_attw02mediumitalic-webfont.eot');
+    src: url('../fonts/omnes/omnes_attw02mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnes_attw02mediumitalic-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnes_attw02mediumitalic-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnes_attw02mediumitalic-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnes_attw02mediumitalic-webfont.svg#omnes_att_w02_medium_italicRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}*/
+@font-face { /*Used*/
+    font-family: 'omnesatt_w02_bold_italicRg';
+    src: url('../fonts/omnes/omnesattw02bolditalic-webfont.eot');
+    src: url('../fonts/omnes/omnesattw02bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/omnes/omnesattw02bolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/omnes/omnesattw02bolditalic-webfont.woff') format('woff'),
+         url('../fonts/omnes/omnesattw02bolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/omnes/omnesattw02bolditalic-webfont.svg#omnesatt_w02_bold_italicRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*Stag Stencil Font */
+@font-face { /*used*/
+font-family: 'StagStencilATT-BoldItalic';
+src: url('../fonts/stagstencil/StagStencilATT-BoldItalic.eot?#iefix') format('embedded-opentype'),
+	 url('../fonts/stagstencil/StagStencilATT-BoldItalic.otf')  format('opentype'),
+     url('../fonts/stagstencil/StagStencilATT-BoldItalic.woff') format('woff'), 
+     url('../fonts/stagstencil/StagStencilATT-BoldItalic.ttf')  format('truetype'), 
+     url('../fonts/stagstencil/StagStencilATT-BoldItalic.svg#StagStencilATT-BoldItalic') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+@font-face { /*used*/
+font-family: 'DC_S';
+src: url('dc_s.ttf')  format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+/*@font-face {
+font-family: 'StagStencilATT-LightItalic';
+src: url('../fonts/stagstencil/StagStencilATT-LightItalic.eot?#iefix') format('embedded-opentype'),  url('StagStencilATT-LightItalic.otf')  format('opentype'),
+     url('../fonts/stagstencil/StagStencilATT-LightItalic.woff') format('woff'), 
+     url('../fonts/stagstencil/StagStencilATT-LightItalic.ttf')  format('truetype'), 
+     url('../fonts/stagstencil/StagStencilATT-LightItalic.svg#StagStencilATT-LightItalic') format('svg');
+font-weight: normal;
+font-style: normal;
+}*/
+@font-face {/*used*/
+font-family: 'StagStencilATT-Light';
+src: url('../fonts/stagstencil/StagStencilATT-Light.eot?#iefix') format('embedded-opentype'),  url('StagStencilATT-Light.otf')  format('opentype'),
+     url('../fonts/stagstencil/StagStencilATT-Light.woff') format('woff'), 
+     url('../fonts/stagstencil/StagStencilATT-Light.ttf')  format('truetype'), 
+     url('../fonts/stagstencil/StagStencilATT-Light.svg#StagStencilATT-Light') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+@font-face { /*used*/
+font-family: 'StagStencilATT-Bold';
+src: url('../fonts/stagstencil/StagStencilATT-Bold.eot?#iefix') format('embedded-opentype'),  url('StagStencilATT-Bold.otf')  format('opentype'),
+     url('../fonts/stagstencil/StagStencilATT-Bold.woff') format('woff'), 
+     url('../fonts/stagstencil/StagStencilATT-Bold.ttf')  format('truetype'), 
+     url('../fonts/stagstencil/StagStencilATT-Bold.svg#StagStencilATT-Bold') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+    font-family: omnes_att_w02regular, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    max-width: 100%;/*Elimates border*/
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+#logo {
+	font-family: omnesatt_w02_bold_italicRg;
+	font-size: 3.2em;
+    line-height: 1.5em;
+	color: #333333;
+	text-align: left;
+}
+#logo h1 {
+	font-family: omnesatt_w02_bold_italicRg;
+	color: #0574ac;
+	font-size: 1em;
+	text-decoration: none;
+	font-weight: normal;
+	display: inline;
+}
+/* ==========================================================================
+   Main Page 
+   ========================================================================== */
+#your-chair {
+    color: #333333;
+    font-size: 2em;
+    text-align: center;
+    text-indent: 0;
+    line-height: 2em;
+}
+#your-chair .your-chair-orange{
+    color: #ef6f00;
+}
+#your-chair .your-chair-green{
+    color: #1b7e28;
+}
+#your-chair .your-chair-red{
+    color: #b30a3c;
+}
+#main-option a:link {
+    width: 100%;
+    text-decoration: none;
+    color: #333333;
+    font-weight: normal;
+    text-indent: 1em;
+}
+#main-option a:visited {
+    color: #333333;
+}
+#main-option .main-option-title {
+    font-size: 2em;
+}
+#main-option .main-option-sub {
+    font-size: 1.25em;
+    color: #666666;
+    text-indent: 1.25em;
+}
+#main-option .main-option-value {
+    font-family: StagStencilATT-Light;
+    font-size: 3.5em;
+    float: right;
+    margin: -1.125em .7em 0 0;
+}
+#main-option .main-option-minutes {
+    font-size: 1em;
+    float: right;
+    margin: -4em -1em 0 0;
+}
+#main-option .main-option-hours {
+    font-size: 1em;
+    float: right;
+    margin: -4em .1em 0 0;
+}
+#main-option .main-option-ft {
+    font-size: 1em;
+    float: right;
+    margin: -4em -1em 0 0;
+}
+#main-option .main-option-degrees {
+    font-size: 1.5em;
+    float: right;
+    margin: -3em 1em 0 0;
+}
+#main-option .main-option-arrow {
+    color: #666666;
+    font-size: 4em;
+    float: right;
+    margin: -1.125em .25em 0 0;
+}
+#main-option .main-option-hiddenarrow {
+    visibility: hidden;
+    font-size: 4em;
+    float: right;
+    margin: -1.125em .25em 0 0;
+}
+#main-option .main-option-latlongsub {
+    color: #666666;
+    font-size: 1.5em;
+    float: right;
+    margin: -2.5em 4em 0 0;
+}
+#main-option .main-option-latlongval {
+    font-size: 1.5em;
+    float: right;
+    margin: -3.75em -6.75em 0 0;
+}
+#main-option .main-option-ejectbutton {
+    color: #b30a3c;
+    font-family: StagStencilATT-Bold;
+    font-size: 3em;
+    text-align: center;
+    margin: -1.2em 0 0 0;
+}
+#main-option .orange {
+    color: #ef6f00;
+}
+#main-option .red {
+    color: #b30a3c;
+}
+#main-option .green {
+    color: #1b7e28;
+}
+/* ==========================================================================
+   Pages
+   ========================================================================== */
+/* Time Sitting */
+.page-wrap {
+    padding: 1em 3em 0 2em;
+}
+.time-sitting-sub {
+    padding: 0em 0em 0 1em;
+}
+.time-sitting-hours {
+    margin: 0 1em 0 0;
+    float: right;
+}
+/* Shared */
+#page {
+    color: #0574ac;
+    margin: .125em 0 -1.5em 1em;
+    font-size: 2.125em;
+    text-decoration: none;
+    font-weight: normal;
+}
+#page .page-back-arrow {
+    color: #666666;
+    float: left;
+    font-size: 2em;
+    margin: -.35em .125em 0 0 ;
+}
+/*graphs*/
+.graph-wrapper {
+    position: relative;
+}
+.graph-scale {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ==========================================================================
+   Breaks
+   ========================================================================== */
+#hash-break{
+    color: #666666;
+    line-height: .5em;
+    font-size: 1em;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #333333;
+    border-style: solid;
+}
+#hash-break-large{
+    color: #d3d3d3;
+    line-height: .3em;
+    font-size: 12.1em;
+    letter-spacing: -23px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #333333;
+    border-style: solid;
+    text-indent: -1em;
+}
+#line-break {
+    background-color: #333333;
+    width: 100%;
+    overflow: hidden;
+    height: 1px;
+}
+/* ==========================================================================
+   Login Page
+   ========================================================================== */
+.login-form {
+    padding: 0 0 0 2em;
+}
+.login-form-text {
+	color: #333333;
+	font-size: 2em;
+}
+#login-form-text-input {
+	border-top: none;
+	border-right: none;
+	border-bottom: 3px solid #333333;
+	border-left: none;
+	width: 90%;
+	font-size: 2em;
+    margin: 0 0 0 1em;
+}
+.login-form-text:focus {
+	color: #ef6f00;
+	font-size: 2em;
+}
+#login-form-text-input:focus {
+	border-top: none;
+	border-right: none;
+	border-bottom: 3px solid #ef6f00;
+	border-left: none;
+	width: 90%;
+	font-size: 2em;
+}
+.login-btn {
+  background: #ef6f00;
+  padding: 10px 20px 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2em;
+  text-align: center;
+  border: none;
+  width: 3em;
+}
+
+.login-btn:hover {
+  background: #0574ac;
+  text-decoration: none;
+  border: none;
+}
+#m2xcont{
+    width: 250px;
+    margin: 4em auto;
+}
+.m2xpower {
+    font-size: 1em;
+    color: #666666;
+    float: left;
+    margin: .25em 0 0 0;
+}
+.m2xlogo {
+    float: left;
+}
+.m2x {
+    font-family: clearviewatt_bdregular;
+    font-size: 4em;
+    color: #0574ac;
+    float: left;
+    margin: .1em 0 0 .125em;
+}
+/* ==========================================================================
+   jquery mobile overrides 
+   ========================================================================== */
+.ui-link{
+    color:#0574ac;
+    text-decoration: none;
+
+}
+/* ==========================================================================
+   eject BSOD
+   ========================================================================== */
+#eject{
+    background-color:#0000aa;
+    color:#ffffff;
+    font-size: 1.5em;
+}
+#eject a:link{
+    color:#ffffff;
+}
+#eject a:visited{
+    color:#ffffff;
+}
+#logo-BSOD {
+    font-family: StagStencilATT-BoldItalic;
+    font-size: 1.25em;
+    line-height: 1em;
+    color: #ffffff;
+    text-align: left;
+    text-indent: .25em;
+    margin: 1.5em 0 0 0;
+}
+#logo-BSOD h1 {
+    font-family: omnesatt_w02_bold_italicRg;
+    color: #ffffff;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline;
+}
+/* ==========================================================================
+   Media Qeries  
+   ========================================================================== */
+@media (max-width: 320px) {
+    #main-option a:link {
+        text-indent: .25em;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

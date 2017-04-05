@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Connected Sleep Monitor</title>
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/vendor/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/calls.js"></script>
+</head>
+<body>
+<!-- Main Page -->
+	<div data-role="page" id="main">
+		<div id="logo">Digital Life <h1>Smart Monitor</h1></div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<p><a href="#temperature">
+			<div id="main-option">
+				<div class="main-option-title">Temperature</div>
+				<div class="main-option-sub">Maximum:<span id="MAX_TEMP">Loading...</span></div>
+				<div class="main-option-sub">Average:<span id="AVERAGE_TEMP">Loading...</span></div>
+				<div class="main-option-sub">STD Deviation:<span id="STDEV_TEMP">Loading...</span></div>
+				<div class="main-option-arrow">></div>
+				<div class="main-option-degrees"><span class="orange">&deg;C</span></div>
+				<div class="main-option-value"><span class="orange" id="TEMP">Loading...</span></div>
+			</div>
+		</a></p>
+		<div id="line-break"> </div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<p><a href="#humidity">
+			<div id="main-option">
+				<div class="main-option-title">Humidity</div>
+				<div class="main-option-sub">Maximum:<span id="MAX_HUM">Loading...</span></div>
+				<div class="main-option-sub">Average:<span id="AVERAGE_HUM">Loading...</span></div>
+				<div class="main-option-sub">STD Deviation:<span id="STDEV_HUM">Loading...</span></div>
+				<div class="main-option-arrow">></div>
+				<div class="main-option-degrees"><span class="orange">%</span></div>
+				<div class="main-option-value"><span class="orange" id="HUMIDITY">Loading...</span></div>
+			</div>
+		</a></p>
+		<div id="line-break"> </div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<p><a href="#accel">
+			<div id="main-option" style="background-image:url('images/baby.png');background-size: 90px;background-repeat: no-repeat;background-position: center;">
+				<div class="main-option-title">Accel</div>
+				<div class="main-option-sub">Accel X:<span id="ACCELX">Loading...</span></div>
+				<div class="main-option-sub">Accel Y:<span id="ACCELY">Loading...</span></div>
+				<div class="main-option-sub">Accel Z:<span id="ACCELZ">Loading...</span></div>
+				<div class="main-option-arrow">></div>
+				<div class="main-option-value"><span class="orange" id="ACCEL">Loading...</span></div>
+			</div>
+		</a></p>
+		<div id="line-break"> </div>
+		
+
+	</div>
+
+<!-- Temperature Page -->
+	<div data-role="page" id="temperature">
+		<div id="logo">Connected <h1>Chair</h1></div>
+		<div id="page"><a href="#main" data-direction="reverse"> <span class="page-back-arrow"> < </span> Back </a></div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<div id="main-option">
+			<div class="page-wrap">
+				<div class="main-option-title">Current Temp.</div>
+				<div class="main-option-sub">Max: <span id="MAX_TEMP_IN">99</span></div>
+				<div class="main-option-degrees"><span class="orange">&deg;F</span></div>
+				<div class="main-option-value"><span class="orange" id="TEMP_IN">999</span></div>
+			</div>
+		</div>
+		<div id="line-break"></div>
+		<div class="graph-wrapper">
+			<img src="http://api-m2x.att.com/v2/charts/3009ea5c57961fe8b54f069d8735e1eb.svg?width=350&height=240&type=values" class="graph-scale">
+		</div>
+	</div>
+<!-- humidity Page -->
+	<div data-role="page" id="humidity">
+		<div id="logo">Connected <h1>Chair</h1></div>
+		<div id="page"><a href="#main" data-direction="reverse"> <span class="page-back-arrow"> < </span> Back </a></div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<div id="main-option">
+			<div class="page-wrap">
+				<div class="main-option-title">Current Temp.</div>
+				<div class="main-option-sub">Max: <span id="MAX_TEMP_IN">99</span></div>
+				<div class="main-option-degrees"><span class="orange">&deg;F</span></div>
+				<div class="main-option-value"><span class="orange" id="TEMP_IN">999</span></div>
+			</div>
+		</div>
+		<div id="line-break"></div>
+		<div class="graph-wrapper">
+			<img src="http://api-m2x.att.com/v2/charts/3009ea5c57961fe8b54f069d8735e1eb.svg?width=350&height=240&type=values" class="graph-scale">
+		</div>
+	</div>
+<!-- accel Page -->
+	<div data-role="page" id="accel">
+		<div id="logo">Connected <h1>Chair</h1></div>
+		<div id="page"><a href="#main" data-direction="reverse"> <span class="page-back-arrow"> < </span> Back </a></div>
+		<div id="hash-break">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+		<div id="main-option">
+			<div class="page-wrap">
+				<div class="main-option-title">Current Temp.</div>
+				<div class="main-option-sub">Max: <span id="MAX_TEMP_IN">99</span></div>
+				<div class="main-option-degrees"><span class="orange">&deg;C</span></div>
+				<div class="main-option-value"><span class="orange" id="TEMP_IN">999</span></div>
+			</div>
+		</div>
+		<div id="line-break"></div>
+		<div class="graph-wrapper">
+			<img src="http://api-m2x.att.com/v2/charts/3009ea5c57961fe8b54f069d8735e1eb.svg?width=350&height=240&type=values" class="graph-scale">
+		</div>
+	</div>
+
+</body>
+</html>
